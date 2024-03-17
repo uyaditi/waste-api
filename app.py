@@ -2,7 +2,6 @@ from flask import Flask, request, jsonify
 from keras.preprocessing import image
 import numpy as np
 import tensorflow as tf
-from PIL import Image
 
 app = Flask(__name__)
 
@@ -49,7 +48,3 @@ def predict_waste():
     if file:
         predicted_value, predicted_accuracy = waste_prediction(file)
         return jsonify({'waste_material': predicted_value, 'accuracy': predicted_accuracy})
-
-
-if __name__ == '__main__':
-    app.run(debug=True)
